@@ -13,12 +13,12 @@ public class Projectile2D : MonoBehaviour
             Debug.DrawRay(ray.origin, ray.direction * 5f, Color.red, 5f);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
             if (hit.collider != null)
-            {
+            { 
                 target.transform.position = new Vector2(hit.point.x, hit.point.y);
-                Debug.Log("hit" + hit.collider.name);
-                Vector2 projectileVelocity = CalculateProjectileVelocity(ShootPoint.position, hit.point, 1f);
-                Rigidbody2D shootBullet = Instantiate(bulletPrefab, ShootPoint.position, Quaternion.identity);
-                shootBullet.linearVelocity = projectileVelocity;
+               Debug.Log("hit" + hit.collider.name);
+               Vector2 projectileVelocity = CalculateProjectileVelocity(ShootPoint.position, hit.point, 1f);
+               Rigidbody2D shootBullet = Instantiate(bulletPrefab, ShootPoint.position, Quaternion.identity);
+               shootBullet.linearVelocity = projectileVelocity;
             }
         }
     }
